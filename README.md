@@ -27,7 +27,9 @@ thread save assigning and copying of the frames.
 * an `__exit__` function to clean up some resources.
 
 The beautiful part of this class is that it enables you to update existing code with minimal change. You only have to 
-include the file `videocaptureasync.py` and change the line containing
+add  
+```from smbh.py.video.capture import VideoCaptureAsync```
+and change the line containing
 ```
 cap = cv2.VideoCapture()
 ```
@@ -43,7 +45,7 @@ and
 ```
 cap.stop()
 ```
-at the beginning and end of the capture read loop. That’s it, very easy. An example can be found in the `test` folder of
+at the beginning and end of the capture read() loop. That’s it, very easy. An example can be found in the `test` folder of
 this project.
 
 ## Running the test
