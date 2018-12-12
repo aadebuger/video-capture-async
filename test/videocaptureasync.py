@@ -3,7 +3,7 @@ import unittest
 
 import cv2
 
-from smbh.py.video.capture import VideoCaptureTreading
+from gfd.py.video.capture import VideoCaptureTreading
 
 
 class VideoCaptureTest(unittest.TestCase):
