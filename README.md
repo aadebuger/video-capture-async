@@ -28,7 +28,7 @@ thread save assigning and copying of the frames.
 
 The beautiful part of this class is that it enables you to update existing code with minimal change. You only have to 
 add  
-```from smbh.py.video.capture import VideoCaptureThreading```
+```from gfd.py.video.capture import VideoCaptureThreading```
 and change the line containing
 ```
 cap = cv2.VideoCapture()
