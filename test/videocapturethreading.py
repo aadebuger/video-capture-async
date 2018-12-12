@@ -35,7 +35,7 @@ class VideoCaptureTest(unittest.TestCase):
         n_frames = 500
         self._run(n_frames, 1280, 720, False)
 
-    def test_video_capture_async(self):
+    def test_video_capture_threading(self):
         n_frames = 500
         self._run(n_frames, 1280, 720, True)
 
