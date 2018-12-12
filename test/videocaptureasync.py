@@ -3,21 +3,21 @@ import unittest
 
 import cv2
 
-from smbh.py.video.capture import VideoCaptureAsync
+from smbh.py.video.capture import VideoCaptureTreading
 
 
 class VideoCaptureTest(unittest.TestCase):
     def setUp(self):
         pass
 
-    def _run(self, n_frames=500, width=1280, height=720, async=False):
-        if async:
-            cap = VideoCaptureAsync(0)
+    def _run(self, n_frames=500, width=1280, height=720, with_threading=False):
+        if with_threading:
+            cap = VideoCaptureTreading(0)
         else:
             cap = cv2.VideoCapture(0)
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
-        if async:
+        if with_threading:
             cap.start()
         t0 = time.time()
         i = 0
@@ -26,8 +26,8 @@ class VideoCaptureTest(unittest.TestCase):
             cv2.imshow('Frame', frame)
             cv2.waitKey(1) & 0xFF
             i += 1
-        print('[i] Frames per second: {:.2f}, async={}'.format(n_frames / (time.time() - t0), async))
-        if async:
+        print('[i] Frames per second: {:.2f}, with_threading={}'.format(n_frames / (time.time() - t0), with_threading))
+        if with_threading:
             cap.stop()
         cv2.destroyAllWindows()
 
