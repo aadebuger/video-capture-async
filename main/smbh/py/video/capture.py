@@ -2,7 +2,7 @@ import threading
 import cv2
 
 
-class VideoCaptureAsync:
+class VideoCaptureTreading:
     def __init__(self, src=0, width=640, height=480):
         self.src = src
         self.cap = cv2.VideoCapture(self.src)
@@ -17,7 +17,7 @@ class VideoCaptureAsync:
 
     def start(self):
         if self.started:
-            print('[!] Asynchroneous video capturing has already been started.')
+            print('[!] Threaded video capturing has already been started.')
             return None
         self.started = True
         self.thread = threading.Thread(target=self.update, args=())
