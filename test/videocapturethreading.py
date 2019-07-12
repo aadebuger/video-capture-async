@@ -3,8 +3,7 @@ import unittest
 
 import cv2
 
-from gfd.py.video.capture import VideoCaptureTreading
-
+from gfd.py.video.capture import VideoCaptureThreading
 
 class VideoCaptureTest(unittest.TestCase):
     def setUp(self):
@@ -12,7 +11,7 @@ class VideoCaptureTest(unittest.TestCase):
 
     def _run(self, n_frames=500, width=1280, height=720, with_threading=False):
         if with_threading:
-            cap = VideoCaptureTreading(0)
+            cap = VideoCaptureThreading(0)
         else:
             cap = cv2.VideoCapture(0)
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
